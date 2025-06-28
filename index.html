@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href=".\style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Weather App</a>
+        </div>
+    </nav>
+    <div class="container">
+        <nav class="navbar border-body">
+            <div class="container-fluid">
+                <a class="navbar-brand py-2">
+                    <h5 id="dateDisplay" class="mb-0 text-light-emphasis"></h5>
+                </a>
+                <form class="d-flex py-2" role="search">
+                    <button class="btn btn-outline-success me-2" type="submit" id="location"><i class="bi bi-crosshair"></i> </button>
+                    <input class="form-control me-2" id="searchBox" type="search" placeholder="Search"
+                        aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit" id="search">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="card bg-dark text-light p-3 rounded-4">
+            <div class="row">
+                <div class="col d-flex flex-column justify-content-between">
+                    <h1 class="pt-2" id="temp"></h1>
+                    <div class="mt-auto">
+                        <h5 id="cityName" class="mt-2 mb-0"></h5>
+                        <h6 id="country" class="mb-0 text-light-emphasis"></h6>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-end align-items-start">
+                    <div class="d-flex flex-column align-items-center">
+                        <div id="weather"></div>
+                        <h6 id="weatherCond" class="mb-0"></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs pt-2">
+            <ul class="nav nav-underline" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><span
+                            class="px-3">Today</span></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"><span
+                            class="px-3">Week</span></button>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                tabindex="0">
+
+                <div class="py-2" id="icon-grid">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gx-2 gy-2">
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class="mb-0 text-light-emphasis">Min Temperature</h5>
+                                    <p><i class="bi bi-thermometer-low"></i>
+                                        <span id="temp_min"> </span>
+                                    </p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class="mb-0 text-light-emphasis">Max Temperature</h5>
+                                    <p><i class="bi bi-thermometer-high"></i><span id="temp_max"></span></p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class="mb-0 text-light-emphasis">Sunrise</h5>
+                                    <p><i class="bi bi-sunrise"></i>
+                                        <span id="sunrise"></span>
+                                    </p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class=" mb-0 text-light-emphasis">Sunset</h5>
+                                    <p><i class="bi bi-sunset"></i>
+                                        <span id="sunset"></span>
+                                    </p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class="mb-0 text-light-emphasis">Humidity</h5>
+                                    <p><i class="bi bi-moisture"></i> <span id="humidity"></span></p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class="mb-0 text-light-emphasis">Feels-Like</h5>
+                                    <p><i class="bi bi-thermometer"></i> <span id="feels_like"></span></p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class="mb-0 text-light-emphasis">Precipitation</h5>
+                                    <p><i class="bi bi-cloud-rain"></i> <span id="precipitation"></span></p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start px-1 py-1">
+                            <div class="features">
+                                <h5 class=" mb-0 text-light-emphasis">Speed</h5>
+                                    <p><i class="bi bi-wind"></i> <span id="speed"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <div class="py-2" id="icon-grid">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gx-2 gy-2" id="week">
+
+                    </div>
+                </div>
+            </div>
+
+            <script src="script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>
